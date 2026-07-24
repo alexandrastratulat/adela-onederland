@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-decor: 'Great Vibes';
+  --color-ivory: #fff8ef;
+  --color-muted: #cfc7c4;
+  --color-gold: #c9a84f;
+}
+
+html,body,#__next{height:100%}
+body{
+  @apply bg-gradient-to-b from-bg1 to-bg2 text-white antialiased;
+  font-family:var(--font-sans);
+}
+
+/* Simple utility classes to match the project's visual language */
+.container-custom{max-width:1200px;margin:0 auto;padding:4rem 1rem}
+.brand{font-family:var(--font-serif);font-size:1.25rem;color:var(--color-ivory)}
+
+/* Loading screen */
+.loading-root{height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.25rem}
+.logo-mark{font-family:var(--font-decor);font-size:3rem;color:var(--color-gold);text-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.loading-quote{color:var(--color-ivory);opacity:0.9;font-size:1.1rem}
+
+/* Button */
+.btn-primary{background:linear-gradient(90deg, rgba(201,168,79,0.12), rgba(201,168,79,0.06));color:var(--color-gold);padding:.5rem 1.25rem;border-radius:999px;border:1px solid rgba(201,168,79,0.12)}

@@ -1,4 +1,4 @@
-use client'
+'use client'
 
 import React, { useRef, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
@@ -14,6 +14,7 @@ export default function BookScene(){
 
   useEffect(()=>{
     // initial gentle float
+    if (!leftCover.current || !rightCover.current || !pages.current) return
     const tl = gsap.timeline({repeat:-1,yoyo:true})
     tl.to([leftCover.current.rotation, rightCover.current.rotation, pages.current.rotation], { y: 0.02, duration: 3, ease: 'sine.inOut' })
     return ()=> tl.kill()
@@ -23,10 +24,14 @@ export default function BookScene(){
     // stop floating and open the right cover with GSAP
     try{
       const tl = gsap.timeline({defaults:{duration:1.2, ease:'power2.inOut'}})
-      tl.to(rightCover.current.rotation, { z: -Math.PI/1.9, x: -0.05 })
-      tl.to(pages.current.rotation, { y: -0.08 }, 0)
-      tl.to(rightCover.current.position, { x: 1.2 }, 0)
-      // small gold glow simulation could be added here
+      if(rightCover.current){
+        tl.to(rightCover.current.rotation, { z: -Math.PI/1.9, x: -0.05 })
+        tl.to(rightCover.current.position, { x: 1.2 }, 0)
+      }
+      if(pages.current){
+        tl.to(pages.current.rotation, { y: -0.08 }, 0)
+      }
+      // small delay for effect
       tl.to({}, {duration:0.6})
       tl.call(()=> setScene('invitation'))
     }catch(e){
@@ -49,7 +54,7 @@ export default function BookScene(){
         </mesh>
 
         {/* pages */}
-        <mesh ref={pages} position={[0,0,0] >
+        <mesh ref={pages} position={[0,0,0]}>
           <boxGeometry args={[1.6,0.05,3.4]} />
           <meshStandardMaterial color={'#fff8ef'} metalness={0.02} roughness={0.8} />
         </mesh>

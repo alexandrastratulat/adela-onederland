@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { PerspectiveCamera } from '@react-three/drei'
 import { gsap } from 'gsap'
 import { useScene } from '../contexts/SceneContext'
 
@@ -42,8 +41,7 @@ export default function BookScene(){
 
   return (
     <div style={{height:'100vh', width:'100%', position:'relative'}}>
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[0,1.2,6]} fov={50} />
+      <Canvas camera={{ position: [0,1.2,6], fov: 50 }}>
         <ambientLight intensity={0.6} />
         <pointLight position={[2,4,2]} intensity={0.6} color={0xffeccf} />
 

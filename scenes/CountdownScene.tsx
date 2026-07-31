@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { PerspectiveCamera } from '@react-three/drei'
 import PocketWatch from '../components/PocketWatch'
 import { gsap } from 'gsap'
 import { useScene } from '../contexts/SceneContext'
@@ -57,8 +56,7 @@ export default function CountdownScene(){
     <div style={{height:'100vh', width:'100%', display:'flex', alignItems:'center', justifyContent:'center', padding:'2rem'}}>
       <div style={{display:'flex',gap:40,alignItems:'center',flexWrap:'wrap',maxWidth:1200}}>
         <div style={{width:420, height:420, position:'relative'}}>
-          <Canvas shadows dpr={[1,2]}>
-            <PerspectiveCamera makeDefault position={[0,0,8]} fov={50} />
+          <Canvas shadows dpr={[1,2]} camera={{ position: [0,0,8], fov: 50 }}>
             <ambientLight intensity={0.6} />
             <PocketWatch />
           </Canvas>

@@ -1,12 +1,12 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useAudio } from '../contexts/AudioContext'
 
 export default function AudioControls(){
   const { isMuted, toggleMute, initialized, userGesture } = useAudio()
 
-  useEffect(()=>{
+  React.useEffect(()=>{
     // ensure we can resume audio if user interacts with controls
     const handler = () => { userGesture().catch(()=>{}) }
     window.addEventListener('pointerdown', handler, { once: true })

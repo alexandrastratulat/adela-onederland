@@ -1,4 +1,4 @@
-use client'
+'use client'
 
 import React, { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
@@ -22,7 +22,7 @@ function FloatingFireflies({ count = 60 }:{count?:number}){
   })
 
   return (
-    <group ref={group}>
+    <group>
       {particles.map((p, i) => (
         <mesh key={i} position={[p.x,p.y,p.z]} >
           <sphereGeometry args={[p.scale,8,8]} />
@@ -79,7 +79,7 @@ function ForestContent(){
 
 export default function ForestScene(){
   return (
-    <div style={{height:'100vh', width:'100%'}}>
+    <div style={{height:'100vh', width:'%'}}>
       <Canvas shadows dpr={[1,2]}>
         <PerspectiveCamera makeDefault position={[0,0,6]} fov={50} />
         <ForestContent />

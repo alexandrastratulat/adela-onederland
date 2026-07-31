@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #061018 0%, #031018 100%);
+  color: #fff8ef;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #c9a84f, #b98f2f);
+  color: #081017;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(201,168,79,0.12);
+}
+
+.loading-root .logo-mark {
+  font-family: 'Great Vibes', serif;
+  font-size: 40px;
+  color: #c9a84f;
+}

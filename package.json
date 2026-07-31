@@ -23,6 +23,6 @@
     "react-icons": "^4.10.1"
   },
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   }
 }
